@@ -1,0 +1,90 @@
+.right-bar{
+    -fx-background-color: #C286BA;
+}
+
+.top-bar{
+    -fx-background-color: #96548E;
+}
+
+.center-bar{
+    -fx-background-color: #E899DF;
+    -fx-background-radius: 10;
+}
+
+.menu-button{
+    -fx-background-radius: 22;
+}
+
+.them-button{
+    -fx-background-radius: 50;
+    -fx-border-color: #96548E ;
+    -fx-border-radius: 50;
+    -fx-border-width: 2px;
+    -fx-background-color: #E899DF ;
+}
+
+.them-button:hover{
+    -fx-background-color: #96548E;
+}
+
+.top-center{
+    -fx-background-radius: 100;
+    -fx-border-color: #96548E;
+    -fx-border-radius: 100;
+    -fx-border-width: 2px;
+    -fx-background-color: #E899DF ;
+}
+
+
+.border{
+    -fx-border-width: 8px;
+    -fx-border-color: pink;
+    -fx-border-radius: 15px;
+    -fx-background-color: #F7DFE3;
+    -fx-background-insets: 8px;
+}
+
+.table-view{
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: #E899DF;
+    -fx-border-radius: 8px;
+}
+
+.table-view .column-header {
+    -fx-alignment: center;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #E899DF;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-background-insets: 0 0 0 0;
+}
+
+.table-view .column-header, .filter {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    border: 1px solid #ccc; /* Viền để dễ nhìn */
+}
+
+table {
+    width: 100%; /* Hoặc có thể đặt chiều rộng cố định */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Ngăn chữ xuống dòng, giữ hàng ngang */
+}
