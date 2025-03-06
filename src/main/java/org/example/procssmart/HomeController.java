@@ -54,25 +54,82 @@ public class HomeController implements Initializable {
     @FXML
     private TableColumn<Information, String> ghichuColumn;
 
+    @FXML
+    private TextField sttText;
+
+    @FXML
+    private TextField noidungText;
+
+    @FXML
+    private TextField sotienText;
+
+    @FXML
+    private TextField ngayText;
+
+    @FXML
+    private TextField ghichuText;
+
+    @FXML
+    private Button themButton;
+
+    @FXML
+    private Button nutthem;
+
+    @FXML
+    private AnchorPane themPane;
+
+
     private ObservableList<Information> data;
 
     public void clickHome(ActionEvent event) {
         homePane.setVisible(true);
+        themPane.setVisible(false);
         tienvaoPane.setVisible(false);
         tienraPane.setVisible(false);
         thongkePane.setVisible(false);
     }
 
     public void clickTienvao(ActionEvent event) {
+        bangtienvao.setItems(data);
         tienvaoPane.setVisible(true);
         tienraPane.setVisible(false);
+        themPane.setVisible(false);
         homePane.setVisible(false);
         thongkePane.setVisible(false);
     }
 
+    @FXML
+    public void add (ActionEvent event) {
+        {
+            Information information = new Information();
+            information.setStt(Integer.parseInt(sttText.getText()));
+            information.setNoidung1(noidungText.getText());
+            information.setNgay(ngayText.getText());
+            information.setGhichu(ghichuText.getText());
+            information.setSotien(Integer.parseInt(sotienText.getText()));
+
+            data.add(information);
+            bangtienvao.setItems(data);
+
+            sttText.clear();
+            noidungText.clear();
+            ngayText.clear();
+            sotienText.clear();
+            ghichuText.clear();
+
+            themPane.setVisible(false);
+        }
+    }
+
+    public void clickThem(ActionEvent event) {
+        homePane.setVisible(true);
+        themPane.setVisible(true);
+
+    }
     public void clickTienra(ActionEvent event) {
         tienraPane.setVisible(true);
         tienvaoPane.setVisible(false);
+        themPane.setVisible(false);
         homePane.setVisible(false);
         thongkePane.setVisible(false);
     }
@@ -80,6 +137,7 @@ public class HomeController implements Initializable {
     public void clickThongke(ActionEvent event) {
         thongkePane.setVisible(true);
         tienvaoPane.setVisible(false);
+        themPane.setVisible(false);
         homePane.setVisible(false);
         tienraPane.setVisible(false);
     }
@@ -94,21 +152,20 @@ public class HomeController implements Initializable {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
         data = FXCollections.observableArrayList(
                 new Information(1, "quy thang 1", 100000, "22/01/2005", " "),
                 new Information(2, "Thu tiền áo", 200000, "10/02/2025", " ")
         );
-
         sttColumn.setCellValueFactory(new PropertyValueFactory<Information, Integer>("stt"));
         noidungColumn.setCellValueFactory(new PropertyValueFactory<Information, String>("noidung1"));
         ngayColumn.setCellValueFactory(new PropertyValueFactory<Information, String>("ngay"));
         sotienColumn.setCellValueFactory(new PropertyValueFactory<Information, Integer>("sotien"));
         ghichuColumn.setCellValueFactory(new PropertyValueFactory<Information, String>("ghichu"));
-        bangtienvao.setItems(data);
 
         homePane.setVisible(true);
         tienvaoPane.setVisible(false);
+        themPane.setVisible(false);
         tienvaoPane.setVisible(false);
         thongkePane.setVisible(false);
     }

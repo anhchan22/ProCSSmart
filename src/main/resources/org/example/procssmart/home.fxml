@@ -8,6 +8,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -163,14 +164,14 @@
                      <children>
                         <TableView fx:id="bangtienvao" accessibleRole="BUTTON" layoutX="7.0" layoutY="6.0" prefHeight="319.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="stt" prefWidth="28.800046920776367" text="STT" />
-                            <TableColumn fx:id="noidung" prefWidth="170.40003204345703" text="Nội Dung" />
-                              <TableColumn fx:id="sotien" minWidth="0.0" prefWidth="128.79998779296875" text="Số Tiền" />
-                              <TableColumn fx:id="ngay" minWidth="0.0" prefWidth="130.4000244140625" text="Ngày" />
-                              <TableColumn fx:id="ghichu" prefWidth="171.99996948242188" text="Ghi Chú" />
+                            <TableColumn fx:id="sttColumn" prefWidth="28.800046920776367" text="STT" />
+                            <TableColumn fx:id="noidungColumn" prefWidth="170.40003204345703" text="Nội Dung" />
+                              <TableColumn fx:id="sotienColumn" minWidth="0.0" prefWidth="128.79998779296875" text="Số Tiền" />
+                              <TableColumn fx:id="ngayColumn" minWidth="0.0" prefWidth="130.4000244140625" text="Ngày" />
+                              <TableColumn fx:id="ghichuColumn" prefWidth="171.99996948242188" text="Ghi Chú" />
                           </columns>
                         </TableView>
-                        <Button fx:id="nutthem" layoutX="617.0" layoutY="389.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" styleClass="them-button" stylesheets="@style.css" text="+" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                        <Button fx:id="nutthem" layoutX="617.0" layoutY="389.0" mnemonicParsing="false" onAction="#clickThem" prefHeight="38.0" prefWidth="38.0" styleClass="them-button" stylesheets="@style.css" text="+" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
@@ -221,6 +222,25 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
+                  <AnchorPane fx:id="themPane" layoutY="68.8" prefHeight="277.0" prefWidth="256.0" styleClass="them-button" stylesheets="@style.css" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="69.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="61.0" prefHeight="18.0" prefWidth="55.0" text="Nội dung">
+                           <font>
+                              <Font name="Cambria" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="21.0" layoutY="102.0" text="Số tiền" />
+                        <Label layoutX="19.0" layoutY="142.0" text="Ngày" />
+                        <Label layoutX="19.0" layoutY="181.0" text="Ghi chú" />
+                        <TextField fx:id="noidungText" layoutX="79.0" layoutY="58.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <TextField fx:id="sotienText" layoutX="79.0" layoutY="98.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <TextField fx:id="ngayText" layoutX="79.0" layoutY="138.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <TextField fx:id="ghichuText" layoutX="82.0" layoutY="177.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <Button fx:id="themButton" layoutX="94.0" layoutY="226.0" mnemonicParsing="false" onAction="#add" prefHeight="29.0" prefWidth="66.0" styleClass="menu-button" stylesheets="@style.css" text="Thêm" AnchorPane.bottomAnchor="22.799999999999955" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="94.80000000000001" AnchorPane.topAnchor="226.0" />
+                        <Label layoutX="19.0" layoutY="25.0" text="Stt" />
+                        <TextField fx:id="sttText" layoutX="80.0" layoutY="21.0" styleClass="menu-button" stylesheets="@style.css" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </center>

@@ -14,7 +14,7 @@ public class Main extends Application {
     public static  HashMap<String, String> userDatabase = new HashMap<>();
     @Override
     public void start(Stage stage) throws IOException {
-        userDatabase.put("anhtran", "12345");
+        userDatabase.put("anh", "111");
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
