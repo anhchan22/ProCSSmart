@@ -73,12 +73,12 @@
 
 .table-container {
     width: 100%;
-    overflow-x: auto; /* Cho phép cuộn ngang */
-    border: 1px solid #ccc; /* Viền để dễ nhìn */
+    overflow-x: auto;
+    border: 1px solid #ccc;
 }
 
 table {
-    width: 100%; /* Hoặc có thể đặt chiều rộng cố định */
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -86,5 +86,9 @@ th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
-    white-space: nowrap; /* Ngăn chữ xuống dòng, giữ hàng ngang */
+    white-space: nowrap;
+}
+
+.login-color{
+    -fx-background-color: #EDC4ED;
 }

@@ -1,5 +1,8 @@
 package org.example.procssmart;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Information {
 
     private int stt;
@@ -8,6 +11,7 @@ public class Information {
     private int sotien;
     private String ngay;
     private String ghichu;
+
 
     public int getStt() {
         return stt;
@@ -54,6 +58,10 @@ public class Information {
         this.ghichu = ghichu;
     }
 
+    public String getFormattedSotien() {
+        NumberFormat formatter = NumberFormat.getNumberInstance(new Locale("vi", "VN"));
+        return formatter.format(this.sotien);
+    }
 
     public Information(int stt, String noidung1, int sotien, String ngay, String ghichu) {
         this.stt = stt;
@@ -66,4 +74,6 @@ public class Information {
     public Information() {
 
     }
+
+
 }

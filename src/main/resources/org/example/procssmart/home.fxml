@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -160,7 +161,7 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="tienvaoPane" layoutX="4.0" layoutY="3.0" onDragDetected="#clickTienvao" prefHeight="442.0" prefWidth="645.0" styleClass="border" stylesheets="@style.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                  <AnchorPane fx:id="tienvaoPane" layoutX="4.0" layoutY="3.0" onDragDetected="#clickTienvao" prefHeight="442.0" prefWidth="645.0" styleClass="border" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                      <children>
                         <TableView fx:id="bangtienvao" accessibleRole="BUTTON" layoutX="7.0" layoutY="6.0" prefHeight="319.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
@@ -176,31 +177,33 @@
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </Button>
+                        <ComboBox fx:id="chonthang" prefHeight="26.0" prefWidth="100.0" promptText="Tháng" styleClass="menu-button" stylesheets="@style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="60.0" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="tienraPane" layoutX="7.0" layoutY="5.0" onDragDetected="#clickTienra" prefHeight="450.0" prefWidth="653.0" styleClass="border" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                  <AnchorPane fx:id="tienraPane" layoutX="7.0" layoutY="5.0" onDragDetected="#clickTienra" prefHeight="450.0" prefWidth="653.0" styleClass="border" stylesheets="@style.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                      <children>
-                        <TableView accessibleRole="BUTTON" layoutX="7.0" layoutY="6.0" prefHeight="319.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="bangtienra" accessibleRole="BUTTON" layoutX="7.0" layoutY="6.0" prefHeight="319.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn prefWidth="28.800046920776367" text="STT" />
-                              <TableColumn prefWidth="170.40003204345703" text="Nội Dung" />
-                              <TableColumn minWidth="0.0" prefWidth="128.79998779296875" text="Số Tiền" />
-                              <TableColumn minWidth="0.0" prefWidth="130.4000244140625" text="Ngày" />
-                              <TableColumn prefWidth="171.99996948242188" text="Ghi Chú" />
+                              <TableColumn fx:id="sttColumn2" prefWidth="28.800046920776367" text="STT" />
+                              <TableColumn fx:id="noidungColumn2" prefWidth="170.40003204345703" text="Nội Dung" />
+                              <TableColumn fx:id="sotienColumn2" minWidth="0.0" prefWidth="128.79998779296875" text="Số Tiền" />
+                              <TableColumn fx:id="ngayColumn2" minWidth="0.0" prefWidth="130.4000244140625" text="Ngày" />
+                              <TableColumn fx:id="ghichuColumn2" prefWidth="171.99996948242188" text="Ghi Chú" />
                            </columns>
                         </TableView>
-                        <Button fx:id="nutthem2" layoutX="617.0" layoutY="389.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" styleClass="them-button" stylesheets="@style.css" text="+" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                        <Button fx:id="nutthem2" layoutX="617.0" layoutY="389.0" mnemonicParsing="false" onAction="#clickThem" prefHeight="38.0" prefWidth="38.0" styleClass="them-button" stylesheets="@style.css" text="+" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </Button>
+                        <ComboBox fx:id="chonthang2" prefHeight="26.0" prefWidth="100.0" promptText="Tháng" styleClass="menu-button" stylesheets="@style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="60.0" />
                      </children>
                   </AnchorPane>
                   <ScrollPane fx:id="thongkePane" hbarPolicy="ALWAYS" onDragDetected="#clickThongke" pannable="true" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="634.0" prefWidth="1014.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0">
                            <children>
-                              <TableView prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView layoutX="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
                                   <TableColumn prefWidth="32.79998707771301" text="STT" />
                                   <TableColumn prefWidth="150.0" text="Họ Tên" />
@@ -222,7 +225,7 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <AnchorPane fx:id="themPane" layoutY="68.8" prefHeight="277.0" prefWidth="256.0" styleClass="them-button" stylesheets="@style.css" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="69.0">
+                  <AnchorPane fx:id="themPane" layoutY="68.8" prefHeight="277.0" prefWidth="256.0" styleClass="them-button" stylesheets="@style.css" visible="false" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="69.0">
                      <children>
                         <Label layoutX="19.0" layoutY="61.0" prefHeight="18.0" prefWidth="55.0" text="Nội dung">
                            <font>
