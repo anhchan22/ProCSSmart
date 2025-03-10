@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class Information implements Serializable {
+public class PaymentData implements Serializable {
 
     private int stt;
     private String hoten;
@@ -64,7 +64,7 @@ public class Information implements Serializable {
         return formatter.format(this.sotien);
     }
 
-    public Information(int stt, String noidung1, int sotien, String ngay, String ghichu) {
+    public PaymentData(int stt, String noidung1, int sotien, String ngay, String ghichu) {
         this.stt = stt;
         this.noidung1 = noidung1;
         this.sotien = sotien;
@@ -72,7 +72,7 @@ public class Information implements Serializable {
         this.ghichu = ghichu;
     }
 
-    public Information() {
+    public PaymentData() {
 
     }
 

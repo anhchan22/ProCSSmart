@@ -17,9 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.NumberFormat;
-import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static org.example.procssmart.Main.dataManager;
@@ -34,13 +31,13 @@ public class HomeController implements Initializable {
     private ScrollPane thongkePane;
 
     @FXML
-    private TableView<Information> bangtienvao, bangtienra;
+    private TableView<PaymentData> bangtienvao, bangtienra;
 
     @FXML
-    private TableColumn<Information, Integer> sttColumn, sttColumn2;
+    private TableColumn<PaymentData, Integer> sttColumn, sttColumn2;
 
     @FXML
-    private TableColumn<Information, String> sotienColumn, sotienColumn2, noidungColumn, ngayColumn, ghichuColumn, noidungColumn2, ngayColumn2, ghichuColumn2;
+    private TableColumn<PaymentData, String> sotienColumn, sotienColumn2, noidungColumn, ngayColumn, ghichuColumn, noidungColumn2, ngayColumn2, ghichuColumn2;
 
     @FXML
     private TextField sttText, noidungText, sotienText, ngayText, ghichuText;
@@ -60,13 +57,16 @@ public class HomeController implements Initializable {
     @FXML
     private Label tongsodu, tongtienvao, tongtienra;
 
-    private  ObservableList<Information> fullData;
+    @FXML
+
+
+    private  ObservableList<PaymentData> fullData;
 
     private void updateSummary() {
         int tongThu = 0;
         int tongChi = 0;
 
-        for (Information info : fullData) {
+        for (PaymentData info : fullData) {
             if (info.getSotien() > 0) {
                 tongThu += info.getSotien();
             } else {
@@ -93,11 +93,11 @@ public class HomeController implements Initializable {
 
     private void updateTableTienVao() {
 
-        ObservableList<Information> filteredData = FXCollections.observableArrayList();
+        ObservableList<PaymentData> filteredData = FXCollections.observableArrayList();
 
         String selectedMonth = chonthang.getValue();
 
-        for (Information info : fullData) {
+        for (PaymentData info : fullData) {
             if (info.getSotien() > 0) {
                 if (selectedMonth != null) {
                     int selectedMonthNum = Integer.parseInt(selectedMonth.split(" ")[1]);
@@ -126,15 +126,15 @@ public class HomeController implements Initializable {
     @FXML
     public void add (ActionEvent event) throws IOException {
         {
-            Information information = new Information();
-            information.setStt(Integer.parseInt(sttText.getText()));
-            information.setNoidung1(noidungText.getText());
-            information.setNgay(ngayText.getText());
-            information.setGhichu(ghichuText.getText());
-            information.setSotien(Integer.parseInt(sotienText.getText()));
+            PaymentData paymentData = new PaymentData();
+            paymentData.setStt(Integer.parseInt(sttText.getText()));
+            paymentData.setNoidung1(noidungText.getText());
+            paymentData.setNgay(ngayText.getText());
+            paymentData.setGhichu(ghichuText.getText());
+            paymentData.setSotien(Integer.parseInt(sotienText.getText()));
 
-            fullData.add(information);
-            dataManager.addInformation(information);
+            fullData.add(paymentData);
+            dataManager.addInformation(paymentData);
             updateTableTienVao();
             updateTableTienRa();
             sttText.clear();
@@ -156,11 +156,11 @@ public class HomeController implements Initializable {
 
     private void updateTableTienRa() {
 
-        ObservableList<Information> filteredData = FXCollections.observableArrayList();
+        ObservableList<PaymentData> filteredData = FXCollections.observableArrayList();
 
         String selectedMonth = chonthang2.getValue();
 
-        for (Information info : fullData) {
+        for (PaymentData info : fullData) {
             if (info.getSotien() < 0) {
                 if (selectedMonth != null) {
                     int selectedMonthNum = Integer.parseInt(selectedMonth.split(" ")[1]); // Lấy số tháng
@@ -195,6 +195,7 @@ public class HomeController implements Initializable {
         homePane.setVisible(false);
         tienraPane.setVisible(false);
     }
+
 
     public void clickBaocao(ActionEvent event) {
 
@@ -234,20 +235,23 @@ public class HomeController implements Initializable {
         });
 
 
-        sttColumn.setCellValueFactory(new PropertyValueFactory<Information, Integer>("stt"));
-        noidungColumn.setCellValueFactory(new PropertyValueFactory<Information, String>("noidung1"));
-        ngayColumn.setCellValueFactory(new PropertyValueFactory<Information, String>("ngay"));
+        sttColumn.setCellValueFactory(new PropertyValueFactory<PaymentData, Integer>("stt"));
+        noidungColumn.setCellValueFactory(new PropertyValueFactory<PaymentData, String>("noidung1"));
+        ngayColumn.setCellValueFactory(new PropertyValueFactory<PaymentData, String>("ngay"));
         sotienColumn.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getFormattedSotien()));
-        ghichuColumn.setCellValueFactory(new PropertyValueFactory<Information, String>("ghichu"));
+        ghichuColumn.setCellValueFactory(new PropertyValueFactory<PaymentData, String>("ghichu"));
 
 
-        sttColumn2.setCellValueFactory(new PropertyValueFactory<Information, Integer>("stt"));
-        noidungColumn2.setCellValueFactory(new PropertyValueFactory<Information, String>("noidung1"));
-        ngayColumn2.setCellValueFactory(new PropertyValueFactory<Information, String>("ngay"));
+        sttColumn2.setCellValueFactory(new PropertyValueFactory<PaymentData, Integer>("stt"));
+        noidungColumn2.setCellValueFactory(new PropertyValueFactory<PaymentData, String>("noidung1"));
+        ngayColumn2.setCellValueFactory(new PropertyValueFactory<PaymentData, String>("ngay"));
         sotienColumn2.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getFormattedSotien()));
-        ghichuColumn2.setCellValueFactory(new PropertyValueFactory<Information, String>("ghichu"));
+        ghichuColumn2.setCellValueFactory(new PropertyValueFactory<PaymentData, String>("ghichu"));
 
         updateSummary();
+
+
+
         homePane.setVisible(true);
         tienvaoPane.setVisible(false);
         themPane.setVisible(false);

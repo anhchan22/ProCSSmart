@@ -5,21 +5,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 
 public class Main extends Application {
 
     public static  HashMap<String, String> userDatabase = new HashMap<>();
 
-    public static DataManager dataManager;
+    public static PaymentDataManager dataManager;
+
     @Override
     public void start(Stage stage) throws Exception {
         userDatabase.put("anh", "111");
-        dataManager = new DataManager();
+        dataManager = new PaymentDataManager();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Hello!");

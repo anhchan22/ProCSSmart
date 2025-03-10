@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataManager {
-    private List<Information> listInfor = new ArrayList<>();
+public class PaymentDataManager {
+    private List<PaymentData> listInfor = new ArrayList<>();
 
 
-    public DataManager() throws Exception {
+    public PaymentDataManager() throws Exception {
 //        Information infor = new Information(1, "noi dung", 10000, "22/05/2025", "");
 //        listInfor.add(infor);
         readData();
@@ -25,22 +25,22 @@ public class DataManager {
     public void readData() throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream("src/main/resources/org/example/procssmart/data.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        listInfor = (ArrayList<Information>) ois.readObject();
+        listInfor = (ArrayList<PaymentData>) ois.readObject();
         ois.close();
         fis.close();
     }
 
-    public void addInformation(Information info) throws IOException {
+    public void addInformation(PaymentData info) throws IOException {
 
         listInfor.add(info);
         saveData();
     }
 
-    public void removeInformation(Information info) throws IOException {
+    public void removeInformation(PaymentData info) throws IOException {
         listInfor.remove(info);
         saveData();
     }
-    public List<Information> getListInfor() {
+    public List<PaymentData> getListInfor() {
         return listInfor;
     }
 }
