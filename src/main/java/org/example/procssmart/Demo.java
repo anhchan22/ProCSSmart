@@ -1,4 +1,3 @@
-
 package org.example.procssmart;
 
 import javafx.collections.FXCollections;
@@ -11,21 +10,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-        import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.text.NumberFormat;
-import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import static org.example.procssmart.Main.dataManager;
 
 
-public class HomeController implements Initializable {
+public class Demo implements Initializable {
 
     @FXML
     private AnchorPane homePane, tienraPane, tienvaoPane;
@@ -61,6 +58,8 @@ public class HomeController implements Initializable {
     private Label tongsodu, tongtienvao, tongtienra;
 
     private  ObservableList<Information> fullData;
+    private DataManager dataManager;
+
 
     private void updateSummary() {
         int tongThu = 0;
@@ -124,7 +123,7 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    public void add (ActionEvent event) throws IOException {
+    public void add (ActionEvent event) {
         {
             Information information = new Information();
             information.setStt(Integer.parseInt(sttText.getText()));
@@ -134,9 +133,7 @@ public class HomeController implements Initializable {
             information.setSotien(Integer.parseInt(sotienText.getText()));
 
             fullData.add(information);
-            dataManager.addInformation(information);
-            updateTableTienVao();
-            updateTableTienRa();
+
             sttText.clear();
             noidungText.clear();
             ngayText.clear();
@@ -144,7 +141,7 @@ public class HomeController implements Initializable {
             ghichuText.clear();
 
             themPane.setVisible(false);
-
+            bangtienvao.setItems(fullData);
         }
     }
 
@@ -173,7 +170,7 @@ public class HomeController implements Initializable {
                 }
             }
         }
-        bangtienra.setItems(filteredData);
+        bangtienra.setItems(filteredData); // Cập nhật bảng
     }
 
     public void clickTienra(ActionEvent event) {
@@ -211,11 +208,12 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)  {
-        fullData = FXCollections.observableArrayList(dataManager.getListInfor());
-
-        // Cập nhật bảng
-        bangtienvao.setItems(fullData);
-        bangtienra.setItems(fullData);
+        fullData = FXCollections.observableArrayList(
+                new Information(1, "quy thang 1", 100000, "22/01/2025", " "),
+                new Information(2, "Thu tiền áo", 200000, "10/02/2025", " "),
+                new Information(4, "GCC chuyển tiền nhà", 560000, "22/03/2025", "done"),
+                new Information(3, "Thanh toán tiền nhà t1", -1444000, "22/01/2025", " ")
+        );
 
         chonthang.setItems(FXCollections.observableArrayList(
                 "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"

@@ -1,9 +1,10 @@
 package org.example.procssmart;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class Information {
+public class Information implements Serializable {
 
     private int stt;
     private String hoten;
@@ -75,5 +76,14 @@ public class Information {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Information{" +
+                "stt=" + stt  +
+                ", noidung1='" + noidung1 + '\'' +
+                ", sotien=" + sotien +
+                ", ngay='" + ngay + '\'' +
+                ", ghichu='" + ghichu + '\'' +
+                '}';
+    }
 }
