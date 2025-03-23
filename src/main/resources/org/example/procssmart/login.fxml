@@ -17,21 +17,6 @@
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.procssmart.LoginController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <left>
-            <AnchorPane prefHeight="483.0" prefWidth="400.0" styleClass="login-color" stylesheets="@style.css" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="231.0" fitWidth="245.0" layoutX="85.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.80000000000001" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="84.80000000000001" AnchorPane.topAnchor="169.0">
-                     <image>
-                        <Image url="@img/z6383508861302_883ac4637ecc72e24712db5b8e54deb2-removebg-preview.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="50.0" layoutY="50.0" prefHeight="86.0" prefWidth="299.0" text="PROCSSmart" textFill="#c159ae">
-                     <font>
-                        <Font name="VNI-Truck" size="47.0" />
-                     </font>
-                  </Label>
-               </children></AnchorPane>
-         </left>
          <right>
             <AnchorPane prefHeight="478.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                <children>
@@ -46,29 +31,29 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="366.0" stylesheets="@style.css">
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" stylesheets="@style.css">
                            <children>
-                              <TextField fx:id="dienten" promptText="Tên đăng nhập" styleClass="menu-button" stylesheets="@style.css" />
+                              <TextField fx:id="dienten" prefHeight="32.0" prefWidth="150.0" promptText="Tên đăng nhập" styleClass="menu-button" stylesheets="@style.css" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="51.0" prefWidth="366.0">
+                        <HBox alignment="CENTER" prefHeight="76.0" prefWidth="400.0">
                            <children>
-                              <PasswordField fx:id="dienmk" promptText="Mật Khẩu" styleClass="menu-button" stylesheets="@style.css" />
+                              <PasswordField fx:id="dienmk" prefHeight="32.0" prefWidth="150.0" promptText="Mật Khẩu" styleClass="menu-button" stylesheets="@style.css" />
                            </children>
                         </HBox>
-                        <HBox alignment="BOTTOM_CENTER" prefHeight="56.0" prefWidth="366.0">
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="74.0" prefWidth="400.0">
                            <children>
                               <Button fx:id="dangnhap" alignment="CENTER" mnemonicParsing="false" onAction="#changeDangnhap" prefHeight="30.0" prefWidth="150.0" styleClass="menu-button" stylesheets="@style.css" text="Đăng Nhập" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="66.0" prefWidth="366.0">
+                        <HBox alignment="CENTER" prefHeight="107.0" prefWidth="400.0">
                            <children>
                               <Button fx:id="dangki" mnemonicParsing="false" onAction="#changeDangki" prefHeight="30.0" prefWidth="154.0" styleClass="menu-button" stylesheets="@style.css" text="Đăng Kí" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="dangkiBox" layoutX="69.0" layoutY="139.0" prefHeight="200.0" prefWidth="400.0" styleClass="right-bar" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox fx:id="dangkiBox" layoutX="69.0" layoutY="139.0" prefHeight="200.0" prefWidth="400.0" styleClass="right-bar" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
@@ -89,12 +74,12 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="52.0" prefWidth="366.0">
                            <children>
-                              <TextField fx:id="taomk" promptText="Nhập mật khẩu" styleClass="menu-button" stylesheets="@style.css" />
+                              <PasswordField fx:id="taomk" promptText="Nhập mật khẩu" styleClass="menu-button" stylesheets="@style.css" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="66.0" prefWidth="366.0">
                            <children>
-                              <TextField fx:id="dienlaimk" promptText="Nhập lại mật khẩu" styleClass="menu-button" stylesheets="@style.css" />
+                              <PasswordField fx:id="dienlaimk" promptText="Nhập lại mật khẩu" styleClass="menu-button" stylesheets="@style.css" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -107,6 +92,21 @@
                </children>
             </AnchorPane>
          </right>
+         <center>
+            <AnchorPane prefHeight="483.0" prefWidth="400.0" styleClass="login-color" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="231.0" fitWidth="245.0" layoutX="84.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="72.80000000000001" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="85.80000000000001" AnchorPane.topAnchor="197.0">
+                     <image>
+                        <Image url="@img/z6383508861302_883ac4637ecc72e24712db5b8e54deb2-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="35.0" layoutY="-18.0" prefHeight="267.0" prefWidth="341.0" text="PROCSSmart" textFill="#c159ae">
+                     <font>
+                        <Font name="Cooper Black" size="50.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </center>
       </BorderPane>
    </children>
 </StackPane>

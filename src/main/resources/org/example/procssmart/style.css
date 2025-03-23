@@ -15,6 +15,13 @@
     -fx-background-radius: 22;
 }
 
+.menu-them{
+    -fx-background-radius: 50;
+    -fx-border-color: #96548E ;
+    -fx-border-radius: 50;
+    -fx-border-width: 2px;
+    -fx-background-color: #E899DF ;
+}
 .them-button{
     -fx-background-radius: 50;
     -fx-border-color: #96548E ;
@@ -41,6 +48,14 @@
     -fx-border-color: pink;
     -fx-border-radius: 15px;
     -fx-background-color: #F7DFE3;
+    -fx-background-insets: 8px;
+}
+
+.border-home{
+    -fx-border-width: 8px;
+    -fx-border-color: pink;
+    -fx-border-radius: 15px;
+    -fx-background-color: #F1F8E9;
     -fx-background-insets: 8px;
 }
 
@@ -77,12 +92,12 @@
     border: 1px solid #ccc;
 }
 
-table {
+.table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th, td {
+.th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
@@ -91,4 +106,101 @@ th, td {
 
 .login-color{
     -fx-background-color: #EDC4ED;
+}
+
+
+/* Header bảng */
+.label-header {
+    -fx-background-color: #E899DF; /* Hồng đậm */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 5px;
+    -fx-border-color: #BA68C8;
+    -fx-border-width: 1px;
+}
+
+/* STT */
+.grid-stt {
+    -fx-background-color: #E1BEE7;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 5px;
+    -fx-border-color: #BA68C8;
+    -fx-border-width: 1px;
+}
+
+/*  Họ tên */
+.grid-name {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 5px;
+    -fx-border-color: #BA68C8;
+    -fx-border-width: 1px;
+}
+
+/* Ô nhập dữ liệu */
+.grid-cell {
+    -fx-background-color: white;
+    -fx-border-color: #E1BEE7;
+    -fx-border-width: 1px;
+    -fx-font-size: 12px;
+    -fx-padding: 6px;
+    -fx-alignment: CENTER;
+}
+
+/* Hiệu ứng khi hover vào ô */
+.grid-cell:hover {
+    -fx-background-color: #F8BBD0;
+}
+
+/*  Khi click chọn ô */
+.grid-cell:focused {
+    -fx-background-color: #F8BBD0;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+
+.row-even {
+    -fx-background-color: #FCE4EC;
+}
+
+
+.row-odd {
+    -fx-background-color: white;
+}
+
+.vien-tren-trai {
+    -fx-border-radius: 15px 0 0 0;
+    -fx-background-radius: 15px 0 0 0;
+}
+
+.vien-tren-phai {
+    -fx-border-radius: 0 15px 0 0;
+    -fx-background-radius: 0 15px 0 0;
+}
+
+.vien-duoi-trai {
+    -fx-border-radius: 0 0 15px 0;
+    -fx-background-radius: 0 0 15px 0;
+}
+
+.vien-duoi-phai {
+    -fx-border-radius: 0 0 0 15px;
+    -fx-background-radius: 0 0 0 15px;
+}
+
+.bao-cao {
+    -fx-background-color: #F8BBD0;
+    -fx-border-color: #8F8F8F;
+    -fx-border-width: 1px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
 }

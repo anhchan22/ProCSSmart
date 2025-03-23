@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="550.0" prefWidth="800.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.procssmart.HomeController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.procssmart.HomeController">
    <children>
-      <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox fx:id="vBoxtrai" prefHeight="450.0" prefWidth="146.0" styleClass="right-bar" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <VBox fx:id="vBoxtrai" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="127.0" styleClass="right-bar" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="hboxtienvao" alignment="CENTER" prefHeight="50.0" prefWidth="162.0">
+                  <HBox fx:id="hboxtienvao" alignment="CENTER" prefHeight="63.0" prefWidth="127.0">
                      <children>
                         <Button fx:id="tienvao" mnemonicParsing="false" onAction="#clickTienvao" prefHeight="30.0" prefWidth="110.0" styleClass="menu-button" stylesheets="@style.css" text="Tiền Vào" textFill="#d721c1">
                            <font>
@@ -31,7 +37,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxtienra" alignment="CENTER" prefHeight="50.0" prefWidth="162.0">
+                  <HBox fx:id="hboxtienra" alignment="CENTER" prefHeight="62.0" prefWidth="127.0">
                      <children>
                         <Button fx:id="tienra" mnemonicParsing="false" onAction="#clickTienra" prefHeight="30.0" prefWidth="110.0" styleClass="menu-button" stylesheets="@style.css" text="Tiền Ra" textFill="#d721c1">
                            <font>
@@ -40,7 +46,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxthongke" alignment="CENTER" prefHeight="50.0" prefWidth="162.0">
+                  <HBox fx:id="hboxthongke" alignment="CENTER" prefHeight="64.0" prefWidth="127.0">
                      <children>
                         <Button fx:id="thongke" mnemonicParsing="false" onAction="#clickThongke" prefHeight="30.0" prefWidth="110.0" styleClass="menu-button" stylesheets="@style.css" text="Thống Kê" textFill="#d721c1">
                            <font>
@@ -49,106 +55,116 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox fx:id="hboxbaocao" alignment="CENTER" prefHeight="50.0" prefWidth="162.0">
+                  <HBox fx:id="hboxbaocao" alignment="CENTER" prefHeight="61.0" prefWidth="127.0">
                      <children>
-                        <Button fx:id="baocao" mnemonicParsing="false" prefHeight="30.0" prefWidth="110.0" styleClass="menu-button" stylesheets="@style.css" text="Báo Cáo" textFill="#d721c1">
+                        <Button fx:id="baocao" mnemonicParsing="false" onAction="#clickBaocao" prefHeight="30.0" prefWidth="110.0" styleClass="menu-button" stylesheets="@style.css" text="Báo Cáo" textFill="#d721c1">
                            <font>
                               <Font name="Cambria Bold Italic" size="20.0" />
                            </font>
                         </Button>
                      </children>
                   </HBox>
-                  <HBox alignment="BOTTOM_CENTER" prefHeight="225.0" prefWidth="146.0">
-                     <children>
-                        <Button fx:id="dangxuat" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickDangxuat" prefHeight="30.0" prefWidth="110.0" styleClass="menu-button" stylesheets="@style.css" text="Đăng Xuất" textFill="#d721c1">
-                           <font>
-                              <Font name="Cambria Bold Italic" size="20.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="293.0" prefWidth="127.0" />
+                  <Button fx:id="dangxuat" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickDangxuat" prefHeight="16.0" prefWidth="110.0" styleClass="menu-button" stylesheets="@style.css" text="Đăng Xuất" textFill="#d721c1">
+                     <font>
+                        <Font name="Cambria Bold Italic" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
             </VBox>
          </left>
          <top>
-            <HBox fx:id="hboxtop" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="top-bar" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <HBox fx:id="hboxtop" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="850.0" styleClass="top-bar" stylesheets="@style.css" BorderPane.alignment="CENTER_LEFT">
                <children>
-                  <Button fx:id="home" mnemonicParsing="false" onAction="#clickHome" prefHeight="71.0" prefWidth="146.0" stylesheets="@style.css" text="HOME" textFill="WHITE">
+                  <Button fx:id="home" mnemonicParsing="false" onAction="#clickHome" prefHeight="71.0" prefWidth="124.0" styleClass="menu-button" stylesheets="@style.css" text="HOME" textFill="#a4618f">
                      <font>
                         <Font name="Cambria Bold" size="35.0" />
                      </font>
-                     <styleClass>
-                        <String fx:value="menu-button" />
-                        <String fx:value="right-bar" />
-                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
                   </Button>
                   <Label fx:id="tieude" alignment="TOP_CENTER" prefHeight="38.0" prefWidth="510.0" text="ProCSSmart - Club Spend Smart" textFill="#d4adad">
                      <font>
-                        <Font name="Cambria Bold" size="30.0" />
+                        <Font name="Cooper Black" size="30.0" />
                      </font>
                   </Label>
                </children>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
             </HBox>
          </top>
          <center>
-            <AnchorPane prefHeight="305.0" prefWidth="546.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="723.0" stylesheets="@style.css" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane fx:id="homePane" layoutX="3.0" layoutY="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onDragDetected="#clickHome" prefHeight="444.0" prefWidth="648.0" styleClass="border" stylesheets="@style.css">
+                  <AnchorPane fx:id="homePane" layoutX="3.0" layoutY="2.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onDragDetected="#clickHome" prefHeight="495.0" prefWidth="716.0" styleClass="border-home" stylesheets="@style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <opaqueInsets>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </opaqueInsets>
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="center-bar" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="TOP_CENTER" layoutX="31.2" layoutY="27.2" prefHeight="467.0" prefWidth="662.0" stylesheets="@style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="top-center" stylesheets="@style.css">
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="714.0" styleClass="bao-cao" stylesheets="@style.css" text="Quỹ CLB PROPTIT 2025-2026" textFill="#a365b1">
+                                 <font>
+                                    <Font name="Cambria Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="157.0" prefWidth="779.0" styleClass="top-center" stylesheets="@style.css">
                                  <children>
-                                    <Label prefHeight="62.0" prefWidth="150.0" text="Chi Tiết:">
+                                    <Label alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="181.0" text="Chi Tiết:">
                                        <font>
-                                          <Font name="Cambria Bold" size="26.0" />
+                                          <Font name="Cambria Bold" size="17.0" />
                                        </font>
                                        <padding>
-                                          <Insets left="30.0" top="30.0" />
+                                          <Insets left="30.0" top="5.0" />
                                        </padding>
                                     </Label>
-                                    <AnchorPane prefHeight="200.0" prefWidth="170.0">
+                                    <AnchorPane prefHeight="155.0" prefWidth="283.0">
                                        <children>
-                                          <Label layoutX="45.0" layoutY="61.0" text="Tổng số dư">
+                                          <Label layoutX="64.0" layoutY="101.0" text="Tổng số dư">
                                              <font>
                                                 <Font name="Cambria Italic" size="15.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="tongsodu" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="31.0" prefHeight="20.0" prefWidth="160.0" text="0">
+                                          <Label fx:id="tongsodu" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="44.0" prefHeight="44.0" prefWidth="207.0" text="0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="44.0">
                                              <font>
-                                                <Font name="Cambria Bold" size="17.0" />
+                                                <Font name="Cambria Bold" size="20.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="165.0">
+                                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="190.0">
                                        <children>
-                                          <Label fx:id="tongtienvao" alignment="CENTER" layoutX="-2.0" layoutY="31.0" prefHeight="20.0" prefWidth="155.0" text="0" textFill="#12ae17">
+                                          <Label fx:id="tongtienvao" alignment="CENTER" layoutX="-2.0" layoutY="39.0" prefHeight="52.0" prefWidth="193.0" text="0" textFill="#12ae17" AnchorPane.topAnchor="39.0">
                                              <font>
-                                                <Font name="Cambria Bold" size="17.0" />
+                                                <Font name="Cambria Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="34.0" layoutY="61.0" text="Tổng tiền vào">
+                                          <Label layoutX="52.0" layoutY="99.0" text="Tổng tiền vào">
                                              <font>
                                                 <Font name="Cambria Italic" size="15.0" />
                                              </font>
                                           </Label>
                                        </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="165.0">
+                                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="174.0">
                                        <children>
-                                          <Label fx:id="tongtienra" alignment="CENTER" layoutX="1.0" layoutY="31.0" prefHeight="20.0" prefWidth="150.0" text="0" textFill="#e4080a">
+                                          <Label fx:id="tongtienra" alignment="CENTER" layoutX="-4.0" layoutY="38.0" prefHeight="52.0" prefWidth="210.0" text="0" textFill="#e4080a" AnchorPane.topAnchor="38.0">
                                              <font>
-                                                <Font name="Cambria Bold" size="17.0" />
+                                                <Font name="Cambria Bold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="38.0" layoutY="61.0" text="Tổng tiền ra">
+                                          <Label layoutX="48.0" layoutY="100.0" text="Tổng tiền ra">
                                              <font>
                                                 <Font name="Cambria Italic" size="15.0" />
                                              </font>
@@ -157,22 +173,29 @@
                                     </AnchorPane>
                                  </children>
                                  <VBox.margin>
-                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </VBox.margin>
                               </HBox>
+                              <ImageView fitHeight="263.0" fitWidth="696.0" pickOnBounds="true" smooth="false">
+                                 <image>
+                                    <Image url="@img/83f82c58d8487ef9c1760f5c39b2294a.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </ImageView>
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="tienvaoPane" layoutX="4.0" layoutY="3.0" onDragDetected="#clickTienvao" prefHeight="442.0" prefWidth="645.0" styleClass="border" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                  <AnchorPane fx:id="tienvaoPane" layoutX="4.0" layoutY="3.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#clickTienvao" prefHeight="490.0" prefWidth="715.0" styleClass="border" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
-                        <TableView fx:id="bangtienvao" accessibleRole="BUTTON" layoutX="7.0" layoutY="6.0" prefHeight="319.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="bangtienvao" accessibleRole="BUTTON" layoutX="16.0" layoutY="10.4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="698.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                           <columns>
-                            <TableColumn fx:id="sttColumn" prefWidth="28.800046920776367" text="STT" />
-                            <TableColumn fx:id="noidungColumn" prefWidth="170.40003204345703" text="Nội Dung" />
-                              <TableColumn fx:id="sotienColumn" minWidth="0.0" prefWidth="128.79998779296875" text="Số Tiền" />
-                              <TableColumn fx:id="ngayColumn" minWidth="0.0" prefWidth="130.4000244140625" text="Ngày" />
-                              <TableColumn fx:id="ghichuColumn" prefWidth="171.99996948242188" text="Ghi Chú" />
+                            <TableColumn fx:id="noidungColumn" prefWidth="215.0" text="Nội Dung" />
+                              <TableColumn fx:id="sotienColumn" minWidth="0.0" prefWidth="130.0" text="Số Tiền" />
+                              <TableColumn fx:id="ngayColumn" minWidth="0.0" prefWidth="150.0" text="Ngày" />
+                              <TableColumn fx:id="ghichuColumn" prefWidth="199.99997558593748" text="Ghi Chú" />
                           </columns>
                         </TableView>
                         <Button fx:id="nutthem" layoutX="617.0" layoutY="389.0" mnemonicParsing="false" onAction="#clickThem" prefHeight="38.0" prefWidth="38.0" styleClass="them-button" stylesheets="@style.css" text="+" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
@@ -183,15 +206,14 @@
                         <ComboBox fx:id="chonthang" prefHeight="26.0" prefWidth="100.0" promptText="Tháng" styleClass="menu-button" stylesheets="@style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="60.0" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="tienraPane" layoutX="7.0" layoutY="5.0" onDragDetected="#clickTienra" prefHeight="450.0" prefWidth="653.0" styleClass="border" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                  <AnchorPane fx:id="tienraPane" layoutX="7.0" layoutY="3.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#clickTienra" prefHeight="490.0" prefWidth="712.0" styleClass="border" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
-                        <TableView fx:id="bangtienra" accessibleRole="BUTTON" layoutX="7.0" layoutY="6.0" prefHeight="319.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="bangtienra" accessibleRole="BUTTON" layoutX="7.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="319.0" prefWidth="597.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
                            <columns>
-                              <TableColumn fx:id="sttColumn2" prefWidth="28.800046920776367" text="STT" />
-                              <TableColumn fx:id="noidungColumn2" prefWidth="170.40003204345703" text="Nội Dung" />
-                              <TableColumn fx:id="sotienColumn2" minWidth="0.0" prefWidth="128.79998779296875" text="Số Tiền" />
-                              <TableColumn fx:id="ngayColumn2" minWidth="0.0" prefWidth="130.4000244140625" text="Ngày" />
-                              <TableColumn fx:id="ghichuColumn2" prefWidth="171.99996948242188" text="Ghi Chú" />
+                              <TableColumn fx:id="noidungColumn2" prefWidth="215.0" text="Nội Dung" />
+                              <TableColumn fx:id="sotienColumn2" minWidth="0.0" prefWidth="130.0" text="Số Tiền" />
+                              <TableColumn fx:id="ngayColumn2" minWidth="0.0" prefWidth="150.0" text="Ngày" />
+                              <TableColumn fx:id="ghichuColumn2" prefWidth="199.0" text="Ghi Chú" />
                            </columns>
                         </TableView>
                         <Button fx:id="nutthem2" layoutX="617.0" layoutY="389.0" mnemonicParsing="false" onAction="#clickThem" prefHeight="38.0" prefWidth="38.0" styleClass="them-button" stylesheets="@style.css" text="+" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
@@ -202,7 +224,7 @@
                         <ComboBox fx:id="chonthang2" prefHeight="26.0" prefWidth="100.0" promptText="Tháng" styleClass="menu-button" stylesheets="@style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="60.0" />
                      </children>
                   </AnchorPane>
-                  <ScrollPane fx:id="thongkePane" hbarPolicy="ALWAYS" onDragDetected="#clickThongke" pannable="true" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane hbarPolicy="ALWAYS" pannable="true" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0">
                            <children>
@@ -228,25 +250,149 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
-                  <AnchorPane fx:id="themPane" layoutY="68.8" prefHeight="277.0" prefWidth="256.0" styleClass="them-button" stylesheets="@style.css" visible="false" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="69.0">
+                  <AnchorPane fx:id="themPane" layoutX="284.0" layoutY="110.4" prefHeight="276.0" prefWidth="267.0" styleClass="menu-them" stylesheets="@style.css" visible="false" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="110.0">
                      <children>
-                        <Label layoutX="19.0" layoutY="61.0" prefHeight="18.0" prefWidth="55.0" text="Nội dung">
+                        <Label layoutX="19.0" layoutY="47.0" prefHeight="18.0" prefWidth="55.0" text="Nội dung">
                            <font>
                               <Font name="Cambria" size="12.0" />
                            </font>
                         </Label>
-                        <Label layoutX="21.0" layoutY="102.0" text="Số tiền" />
+                        <Label layoutX="21.0" layoutY="93.0" text="Số tiền" />
                         <Label layoutX="19.0" layoutY="142.0" text="Ngày" />
-                        <Label layoutX="19.0" layoutY="181.0" text="Ghi chú" />
-                        <TextField fx:id="noidungText" layoutX="79.0" layoutY="58.0" styleClass="menu-button" stylesheets="@style.css" />
-                        <TextField fx:id="sotienText" layoutX="79.0" layoutY="98.0" styleClass="menu-button" stylesheets="@style.css" />
-                        <TextField fx:id="ngayText" layoutX="79.0" layoutY="138.0" styleClass="menu-button" stylesheets="@style.css" />
-                        <TextField fx:id="ghichuText" layoutX="82.0" layoutY="177.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <Label layoutX="19.0" layoutY="190.0" text="Ghi chú" />
+                        <TextField fx:id="noidungText" layoutX="79.0" layoutY="44.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <TextField fx:id="sotienText" layoutX="79.0" layoutY="89.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <TextField fx:id="ghichuText" layoutX="79.0" layoutY="186.0" styleClass="menu-button" stylesheets="@style.css" />
                         <Button fx:id="themButton" layoutX="94.0" layoutY="226.0" mnemonicParsing="false" onAction="#add" prefHeight="29.0" prefWidth="66.0" styleClass="menu-button" stylesheets="@style.css" text="Thêm" AnchorPane.bottomAnchor="22.799999999999955" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="94.80000000000001" AnchorPane.topAnchor="226.0" />
-                        <Label layoutX="19.0" layoutY="25.0" text="Stt" />
-                        <TextField fx:id="sttText" layoutX="80.0" layoutY="21.0" styleClass="menu-button" stylesheets="@style.css" />
+                        <DatePicker fx:id="selectDate" layoutX="80.0" layoutY="138.0" prefHeight="26.0" prefWidth="149.0" styleClass="menu-button" stylesheets="@style.css" />
                      </children>
                   </AnchorPane>
+                  <ScrollPane fx:id="thongkePane" layoutX="4.0" layoutY="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#clickThongke" prefHeight="490.0" prefWidth="822.0" stylesheets="@style.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                    <content>
+                      <AnchorPane styleClass="border" stylesheets="@style.css">
+                           <children>
+                              <GridPane fx:id="thongkeGrid" alignment="BOTTOM_LEFT" layoutX="8.0" layoutY="9.0" styleClass="column-header-background" stylesheets="@style.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="95.199951171875" minWidth="10.0" prefWidth="35.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="175.9999942779541" minWidth="10.0" prefWidth="164.7999755859375" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="106.4000244140625" minWidth="10.0" prefWidth="98.4000244140625" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+                  <AnchorPane fx:id="baocaoPane" layoutY="3.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#clickBaocao" prefHeight="492.0" prefWidth="714.0" styleClass="border" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <ComboBox fx:id="chonthangBaocao" layoutX="83.0" layoutY="17.0" prefHeight="26.0" prefWidth="127.0" promptText="Báo cáo tháng" styleClass="menu-button" stylesheets="@style.css" />
+                        <Label fx:id="baocaoLabel" layoutX="22.0" layoutY="59.0" prefHeight="193.0" prefWidth="250.0" styleClass="bao-cao" stylesheets="@style.css">
+                           <font>
+                              <Font name="Cambria" size="16.0" />
+                           </font>
+                        </Label>
+                        <PieChart fx:id="pieChart" layoutX="292.0" layoutY="17.0" prefHeight="455.0" prefWidth="403.0" styleClass="bao-cao" stylesheets="@style.css" />
+                        <ImageView fitHeight="206.0" fitWidth="254.0" layoutX="21.0" layoutY="265.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@img/1b965e446ddfbf6f56c0165aad65187c.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <TableView layoutY="-26.0" AnchorPane.bottomAnchor="-300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-522.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="STT" />
+                                  <TableColumn prefWidth="75.0" text="Họ Tên" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 1" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 2" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 3" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 4" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 5" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 6" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 7" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 8" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 9" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 10" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 11" />
+                                    <TableColumn prefWidth="75.0" text="Tháng 12" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
          </center>

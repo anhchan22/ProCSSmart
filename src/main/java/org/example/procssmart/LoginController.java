@@ -77,7 +77,7 @@ public class LoginController implements Initializable {
         }
         else {
             if(mk.equals(nhaplaimk) && !tk.isEmpty() && !mk.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Đăng ký tài khoản thành công!");
                 alert.setHeaderText(null);
                 alert.showAndWait();

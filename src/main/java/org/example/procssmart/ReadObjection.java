@@ -8,11 +8,11 @@ import java.util.List;
 
 public class ReadObjection {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        List<PaymentData> list = new ArrayList<>();
+        List<ThongkeData> list = new ArrayList<>();
 
         FileInputStream fis = new FileInputStream("src/main/resources/org/example/procssmart/data.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        list = (List<PaymentData>) ois.readObject();
+        list = (List<ThongkeData>) ois.readObject();
         ois.close();
         fis.close();
         System.out.println(list);

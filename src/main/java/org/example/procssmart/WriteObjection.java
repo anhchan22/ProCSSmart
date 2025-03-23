@@ -8,8 +8,8 @@ import java.util.List;
 
 public class WriteObjection {
     public static void main(String[] args) throws IOException {
-        List<PaymentData> list = new ArrayList<>();
-
+        List<ThongkeData> list = new ArrayList<>();
+        ThongkeData thongkeData = new ThongkeData();
         FileOutputStream fos = new FileOutputStream("src/main/resources/org/example/procssmart/data.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(list);

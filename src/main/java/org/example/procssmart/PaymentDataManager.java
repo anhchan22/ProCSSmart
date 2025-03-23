@@ -31,9 +31,18 @@ public class PaymentDataManager {
     }
 
     public void addInformation(PaymentData info) throws IOException {
-
         listInfor.add(info);
         saveData();
+    }
+
+    public void updateInformation(PaymentData newInfo) throws IOException {
+        for (int i = 0; i < listInfor.size(); i++) {
+            if (listInfor.get(i).equals(newInfo)) {
+                listInfor.set(i, newInfo);
+                saveData(); // Lưu lại file
+                return;
+            }
+        }
     }
 
     public void removeInformation(PaymentData info) throws IOException {

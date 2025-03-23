@@ -3,20 +3,15 @@ package org.example.procssmart;
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.Objects;
 
 public class PaymentData implements Serializable {
 
-    private int stt;
     private String hoten;
     private String noidung1;
     private int sotien;
     private String ngay;
     private String ghichu;
-
-
-    public int getStt() {
-        return stt;
-    }
 
     public String getHoten() {
         return hoten;
@@ -36,10 +31,6 @@ public class PaymentData implements Serializable {
 
     public String getGhichu() {
         return ghichu;
-    }
-
-    public void setStt(int stt) {
-        this.stt = stt;
     }
 
     public void setHoten(String hoten) {
@@ -64,8 +55,7 @@ public class PaymentData implements Serializable {
         return formatter.format(this.sotien);
     }
 
-    public PaymentData(int stt, String noidung1, int sotien, String ngay, String ghichu) {
-        this.stt = stt;
+    public PaymentData( String noidung1, int sotien, String ngay, String ghichu) {
         this.noidung1 = noidung1;
         this.sotien = sotien;
         this.ngay = ngay;
@@ -79,11 +69,26 @@ public class PaymentData implements Serializable {
     @Override
     public String toString() {
         return "Information{" +
-                "stt=" + stt  +
                 ", noidung1='" + noidung1 + '\'' +
                 ", sotien=" + sotien +
                 ", ngay='" + ngay + '\'' +
                 ", ghichu='" + ghichu + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        PaymentData that = (PaymentData) obj;
+        return sotien == that.sotien &&
+                Objects.equals(noidung1, that.noidung1) &&
+                Objects.equals(ngay, that.ngay) &&
+                Objects.equals(ghichu, that.ghichu);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(noidung1, sotien, ngay, ghichu);
     }
 }
