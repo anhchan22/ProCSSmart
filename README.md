@@ -90,7 +90,8 @@
 #### Các bước cài đặt:  
 1. **Clone repository** hoặc tải mã nguồn về máy  
    ```bash
-   git clone https://github.com/your-repo/ProCSSmart.git
+   [git clone https://github.com/your-repo/ProCSSmart.git](https://github.com/anhchan22/ProCSSmart)
+   ```
 
 2. Mở bằng IDE (IntelliJ, Eclipse, NetBeans)
 
