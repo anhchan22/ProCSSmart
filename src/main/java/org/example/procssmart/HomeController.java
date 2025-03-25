@@ -384,8 +384,6 @@ public class HomeController implements Initializable {
             Label sttLabel = new Label(String.valueOf(i + 1));
             Label hoTenLabel = new Label(danhSachHoTen[i]);
 
-//            sttLabel.setAlignment(Pos.CENTER);
-//            hoTenLabel.setAlignment(Pos.CENTER);
 
             sttLabel.setMinWidth(40);
             hoTenLabel.setMinWidth(162.400048828125);
